@@ -31,47 +31,47 @@ URI : /model
 
 BODY_CONTENT_TYPE : JSON
 
-BODY CONTENT: {"model_name": "<MODEL_NAME>", "model_attributes" : "{'<attr_key>': '<attr_type>', ...}"}
+BODY CONTENT: {"model_name": "< MODEL_NAME >", "model_attributes" : "{'< attr_key >': '< attr_type >', ...}"}
 
 
 **List All from a Model:**
 
 METHOD : GET
 
-URI : /services/<model_name>
+URI : /services/< model_name >
 
 
 **Find By Id from a Model:**
 
 METHOD : GET
 
-URI : /services/<model_name>/<id>
+URI : /services/< model_name >/< id >
 
 
 **Create Content to a Model**
 
 METHOD : POST
 
-URI : /services/<model_name>
+URI : /services/< model_name >
 
 BODY_CONTENT_TYPE : JSON
 
-BODY CONTENT: {"<attr_key>": "<attr_value>", ...}
+BODY CONTENT: {"< attr_key >": "< attr_value >", ...}
 
 
 **Edit Content from a Model**
 
 METHOD : PUT
 
-URI : /services/<model_name>/<id>
+URI : /services/< model_name >/< id >
 
 BODY_CONTENT_TYPE : JSON
 
-BODY CONTENT: {"<attr_key>": "<new_attr_value>", ...}
+BODY CONTENT: {"< attr_key >": "< new_attr_value >", ...}
 
 
 **Delete Content from a Model by id**
 
 METHOD : DELETE
 
-URI : /services/<model_name>/<id>
+URI : /services/< model_name >/< id >
