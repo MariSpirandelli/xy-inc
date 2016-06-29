@@ -1,9 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var ClientModel = require('../models/ClientModel.js');
-var assert = require('assert');
-var MongoClient = require('mongodb').MongoClient;
-var uri = require("../config.js").connectionUri();
+var op = require("../db/dbOperations.js");
 
 /**************************************
  * POST /model 
@@ -19,28 +17,17 @@ router.post('/', function(req, res, next) {
     }
     
     var bodyReq = req.body;
-    //connect to database
-    MongoClient.connect(uri, function (err, db) {
-        if (err) {
-            res.status(500).end();
-            next(err);
-        } else {
-            db.collection(ClientModel.modelName).insertOne({
-                    client_id: client_id,
-                    model_name: bodyReq.model_name + "_" + client_id,
-                    model_attributes: bodyReq.model_attributes,
-                    updated_at: Date.now()
-                },
-                function (err, succ) {
-                    if (err) return next(err);
-                    db.close();
-                    console.log(succ.ops[0]);
-                    res.json(succ.ops[0]);
-                });
-        }
-
+    //connect to database and execute command save
+    op.saveOne(ClientModel.modelName, {
+        client_id: client_id,
+        model_name: bodyReq.model_name + "_" + client_id,
+        model_attributes: bodyReq.model_attributes,
+        updated_at: Date.now()
+    }).then(function (err) {
+        next(err)
+    }, function (result) {
+        res.json(result);
     });
-
 });
 
 module.exports = router;

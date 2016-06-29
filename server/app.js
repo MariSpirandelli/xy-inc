@@ -24,12 +24,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.post('/', function(request, response){
-  console.log(request.body);      // your JSON
-  response.send(request.body);    // echo the result back
-});
-
-
 app.use('/', routes);
 app.use('/client', client);
 app.use('/model', model);
