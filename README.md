@@ -1,7 +1,7 @@
 # xy-inc
 ###Backend as a Service
 
-Developed to be used by those who does not have knowledge to build and keep a rest service api. It makes possible to any user create only a client side application and use CRUD operations of any models from this application.
+Developed to be used by those who does not have knowledge to build and keep a rest service api. It makes possible to any user only create a client side application and use CRUD operations of any models from this application.
 
 ###How to use:
 
